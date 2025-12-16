@@ -11,10 +11,12 @@ app = FastAPI(
 )
 
 origins = [
-    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://localhost:3000",   
     "https://ghoststack.com",
-    "https://www.ghoststack.com", 
+    "https://www.ghoststack.com",
 ]
+
 
 app.add_middleware(
     CORSMiddleware,
