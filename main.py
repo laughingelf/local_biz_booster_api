@@ -13,8 +13,8 @@ app = FastAPI(
 origins = [
     "http://localhost:5173",
     "http://localhost:3000",   
-    "https://ghoststack.com",
-    "https://www.ghoststack.com",
+    "https://ghoststackdesigns.com",
+    "https://www.ghoststackdesigns.com",
 ]
 
 
