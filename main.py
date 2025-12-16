@@ -101,7 +101,26 @@ async def scan_site(
         has_gallery = has_any(
             ["gallery", "our work", "portfolio", "before and after"]
         )
-        has_faq = has_any(["faq", "frequently asked questions"])
+        faq_keywords = [
+            "faq",
+            "faqs",
+            "frequently asked questions",
+            "common questions",
+            "got questions",
+            "have questions",
+            "q&a",
+            "q & a",
+        ]
+
+        has_faq = has_any(faq_keywords)
+
+        # Optional: fallback heuristic – if there are a bunch of question marks,
+        # assume there's some sort of Q&A-style content.
+        if not has_faq:
+            question_marks = text.count("?")
+            if question_marks >= 3:
+                has_faq = True
+
         has_clear_cta = has_any(
             [
                 "call now",
